@@ -1,12 +1,12 @@
-// src/components/StarsCanvas.tsx
 "use client";
 import { Canvas } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random";
 import { useRef, useMemo } from "react";
+import * as THREE from "three";
 
 export default function StarsCanvas() {
-  const ref = useRef<any>(null);
+  const ref = useRef<THREE.Points | null>(null);
 
   const sphere = useMemo(() => {
     const arr = new Float32Array(5000);
