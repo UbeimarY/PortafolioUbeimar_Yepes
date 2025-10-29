@@ -1,22 +1,18 @@
-// components/StarsCanvas.tsx
+// components/StarsCanvas.tsx (sin group)
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
-import * as random from "maath/random";
 import { useRef, useMemo, Suspense } from "react";
-import { BufferAttribute, Points as PointsType } from "three";
+import { Points as PointsType } from "three";
 
 function Stars() {
   const ref = useRef<PointsType>(null);
   
-  // Generar las posiciones de las estrellas de forma segura
   const sphere = useMemo(() => {
     try {
-      // Crear un array Float32Array con valores iniciales válidos
       const positions = new Float32Array(5000 * 3);
       
-      // Generar posiciones aleatorias dentro de una esfera
       for (let i = 0; i < positions.length; i += 3) {
         const theta = 2 * Math.PI * Math.random();
         const phi = Math.acos(2 * Math.random() - 1);
@@ -30,10 +26,7 @@ function Stars() {
       return positions;
     } catch (error) {
       console.error("Error generating star positions:", error);
-      // Fallback: crear una esfera simple si hay error
-      return new Float32Array([
-        -1, 0, 0, 1, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, -1, 0, 0, 1
-      ]);
+      return new Float32Array([-1, 0, 0, 1, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, -1, 0, 0, 1]);
     }
   }, []);
 
@@ -41,21 +34,20 @@ function Stars() {
     if (ref.current) {
       ref.current.rotation.x -= delta / 10;
       ref.current.rotation.y -= delta / 15;
+      ref.current.rotation.z = Math.PI / 4; // Rotación en Z
     }
   });
 
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
-        <PointMaterial
-          transparent
-          color="#ffffff"
-          size={0.002}
-          sizeAttenuation={true}
-          depthWrite={false}
-        />
-      </Points>
-    </group>
+    <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
+      <PointMaterial
+        transparent
+        color="#ffffff"
+        size={0.002}
+        sizeAttenuation={true}
+        depthWrite={false}
+      />
+    </Points>
   );
 }
 

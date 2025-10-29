@@ -2,6 +2,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
+import Contact from "@/components/Contact";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutMe />
+      <Contact />
+      <Testimonials />
     </main>
   );
 }
