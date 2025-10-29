@@ -1,7 +1,7 @@
 // components/Testimonials.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 export default function Testimonials() {
@@ -43,9 +43,9 @@ export default function Testimonials() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [imageErrors, setImageErrors] = useState<{[key: number]: boolean}>({});
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -68,7 +68,7 @@ export default function Testimonials() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, currentTestimonial]);
+  }, [isAutoPlaying, nextTestimonial]);
 
   return (
     <section id="testimonials" className="relative w-full min-h-screen flex items-center justify-center text-white py-16">
@@ -93,7 +93,7 @@ export default function Testimonials() {
             className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-400 transition-colors text-3xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 z-10"
             aria-label="Testimonio anterior"
           >
-            ‹
+            &lsaquo;
           </button>
           
           <button 
@@ -101,7 +101,7 @@ export default function Testimonials() {
             className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-400 transition-colors text-3xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 z-10"
             aria-label="Siguiente testimonio"
           >
-            ›
+            &rsaquo;
           </button>
 
           {/* Testimonio actual */}
@@ -126,7 +126,7 @@ export default function Testimonials() {
             </div>
 
             {/* Quote */}
-            <div className="text-blue-400 text-5xl mb-4 leading-none">"</div>
+            <div className="text-blue-400 text-5xl mb-4 leading-none">&ldquo;</div>
             
             {/* Texto del testimonio */}
             <p className="text-white/90 text-lg md:text-xl leading-relaxed mb-6 italic">
