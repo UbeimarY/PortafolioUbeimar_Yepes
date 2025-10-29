@@ -41,6 +41,7 @@ export default function Testimonials() {
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [imageErrors, setImageErrors] = useState<{[key: number]: boolean}>({});
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -52,6 +53,10 @@ export default function Testimonials() {
 
   const goToTestimonial = (index: number) => {
     setCurrentTestimonial(index);
+  };
+
+  const handleImageError = (testimonialId: number) => {
+    setImageErrors(prev => ({ ...prev, [testimonialId]: true }));
   };
 
   // Auto-play functionality
@@ -104,22 +109,19 @@ export default function Testimonials() {
             {/* Avatar */}
             <div className="mb-6">
               <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-blue-400/50 mx-auto">
-                <Image
-                  src={testimonials[currentTestimonial].avatar}
-                  alt={testimonials[currentTestimonial].author}
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    // Fallback si la imagen no carga
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.nextElementSibling?.classList.remove('hidden');
-                  }}
-                />
-                {/* Fallback con iniciales */}
-                <div className="hidden absolute inset-0 bg-blue-500 flex items-center justify-center text-white font-bold text-xl">
-                  {testimonials[currentTestimonial].author.charAt(0)}
-                </div>
+                {!imageErrors[testimonials[currentTestimonial].id] ? (
+                  <Image
+                    src={testimonials[currentTestimonial].avatar}
+                    alt={testimonials[currentTestimonial].author}
+                    fill
+                    className="object-cover"
+                    onError={() => handleImageError(testimonials[currentTestimonial].id)}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-blue-500 flex items-center justify-center text-white font-bold text-xl">
+                    {testimonials[currentTestimonial].author.charAt(0)}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -139,9 +141,11 @@ export default function Testimonials() {
               <p className="text-white/70 text-sm mb-1">
                 {testimonials[currentTestimonial].role}
               </p>
-              <p className="text-blue-400 font-medium text-sm">
-                {testimonials[currentTestimonial].institution}
-              </p>
+              {testimonials[currentTestimonial].institution && (
+                <p className="text-blue-400 font-medium text-sm">
+                  {testimonials[currentTestimonial].institution}
+                </p>
+              )}
             </div>
           </div>
 
