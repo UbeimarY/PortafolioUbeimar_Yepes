@@ -1,6 +1,8 @@
+// app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from 'sonner';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 export const metadata: Metadata = {
   title: 'Ubeimar Yepes - Full Stack Developer & UI/UX Designer',
@@ -29,10 +31,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="dark">
-      <body className="dark">
-        {children}
-        <Toaster />
+    <html lang="es" suppressHydrationWarning>
+      <body className="antialiased">
+        <ThemeProvider>
+          {children}
+          <Toaster 
+            position="top-right"
+            theme="system" // Esto hará que Toaster siga el tema del sistema
+            closeButton
+            richColors
+          />
+        </ThemeProvider>
       </body>
     </html>
   );
