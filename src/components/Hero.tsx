@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 export default function Hero() {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
+      {/* Fondo animado ahora está montado globalmente */}
       <StarsCanvas />
 
       <p className="text-blue-400 mb-2 text-sm">¡Hola! Soy</p>

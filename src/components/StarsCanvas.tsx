@@ -53,10 +53,11 @@ function Stars() {
 
 export default function StarsCanvas() {
   return (
-    <div className="absolute inset-0 -z-10">
+    <div className="fixed inset-0 z-[-1] pointer-events-none">
       <Canvas 
         camera={{ position: [0, 0, 1] }}
         gl={{ antialias: false }}
+        dpr={[1, 1.5]}
       >
         <Suspense fallback={null}>
           <Stars />
