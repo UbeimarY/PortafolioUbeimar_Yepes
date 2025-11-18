@@ -71,34 +71,34 @@ export default function Testimonials() {
   }, [isAutoPlaying, nextTestimonial]);
 
   return (
-    <section id="testimonials" className="relative w-full min-h-screen flex items-center justify-center text-white py-16">
+    <section id="testimonials" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
       <div className="container mx-auto px-6 max-w-4xl">
         {/* Encabezado */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Testimonios</h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Lo que dicen mis compañeros y colaboradores sobre trabajar conmigo
           </p>
         </div>
 
         {/* Carrusel */}
-        <div 
-          className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300"
+        <div
+          className="relative bg-card backdrop-blur-sm rounded-2xl p-8 border border-border hover:border-border transition-all duration-300"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           {/* Controles del carrusel */}
-          <button 
+          <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-400 transition-colors text-3xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 z-10"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-foreground hover:text-blue-500 dark:hover:text-blue-400 transition-colors text-3xl w-10 h-10 flex items-center justify-center rounded-full border border-border hover:bg-accent/20 z-10"
             aria-label="Testimonio anterior"
           >
             &lsaquo;
           </button>
-          
-          <button 
+
+          <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-400 transition-colors text-3xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 z-10"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-foreground hover:text-blue-500 dark:hover:text-blue-400 transition-colors text-3xl w-10 h-10 flex items-center justify-center rounded-full border border-border hover:bg-accent/20 z-10"
             aria-label="Siguiente testimonio"
           >
             &rsaquo;
@@ -125,24 +125,24 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* Quote */}
-            <div className="text-blue-400 text-5xl mb-4 leading-none">&ldquo;</div>
-            
+            {/* Comillas */}
+            <div className="text-blue-500 dark:text-blue-400 text-5xl mb-4 leading-none">&ldquo;</div>
+
             {/* Texto del testimonio */}
-            <p className="text-white/90 text-lg md:text-xl leading-relaxed mb-6 italic">
+            <p className="text-foreground text-lg md:text-xl leading-relaxed mb-6 italic">
               {testimonials[currentTestimonial].text}
             </p>
-            
+
             {/* Información de la persona */}
-            <div className="border-t border-white/10 pt-6 w-full">
-              <h4 className="font-bold text-white text-xl mb-2">
+            <div className="border-t border-border pt-6 w-full">
+              <h4 className="font-bold text-foreground text-xl mb-2">
                 {testimonials[currentTestimonial].author}
               </h4>
-              <p className="text-white/70 text-sm mb-1">
+              <p className="text-muted-foreground text-sm mb-1">
                 {testimonials[currentTestimonial].role}
               </p>
               {testimonials[currentTestimonial].institution && (
-                <p className="text-blue-400 font-medium text-sm">
+                <p className="text-blue-500 dark:text-blue-400 font-medium text-sm">
                   {testimonials[currentTestimonial].institution}
                 </p>
               )}
@@ -156,9 +156,9 @@ export default function Testimonials() {
                 key={index}
                 onClick={() => goToTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial 
-                    ? 'bg-blue-400 scale-125' 
-                    : 'bg-white/30 hover:bg-white/50'
+                  index === currentTestimonial
+                    ? 'bg-blue-500 dark:bg-blue-400 scale-125'
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}
                 aria-label={`Ir al testimonio ${index + 1}`}
               />
@@ -166,29 +166,29 @@ export default function Testimonials() {
           </div>
 
           {/* Contador */}
-          <div className="text-center mt-4 text-white/60 text-sm">
+          <div className="text-center mt-4 text-muted-foreground text-sm">
             {currentTestimonial + 1} / {testimonials.length}
           </div>
         </div>
 
         {/* Llamada a la acción */}
-        <div className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mt-16">
+        <div className="text-center bg-card backdrop-blur-sm rounded-2xl p-8 border border-border mt-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             ¿Te gustaría ser el próximo en compartir una experiencia exitosa?
           </h2>
-          <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-            Si hemos trabajado juntos en algún proyecto, me encantaría escuchar tu experiencia. 
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            Si hemos trabajado juntos en algún proyecto, me encantaría escuchar tu experiencia.
             Tu testimonio puede ayudar a otros a conocer mi forma de trabajo y colaboración.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="#contact"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300 inline-block text-center"
+              className="bg-accent hover:bg-accent text-accent-foreground font-medium py-3 px-8 rounded-lg transition-colors duration-300 inline-block text-center"
             >
               Contáctame
             </a>
-            <button 
-              className="border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300"
+            <button
+              className="border border-border hover:bg-accent text-foreground font-medium py-3 px-8 rounded-lg transition-all duration-300"
               onClick={() => {
                 const contactSection = document.getElementById('contact');
                 if (contactSection) {

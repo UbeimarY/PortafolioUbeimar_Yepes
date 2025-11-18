@@ -121,39 +121,36 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-
   body {
     @apply bg-background text-foreground;
     position: relative;
   }
-  
-  body.dark {
-    @apply text-white;
-  }
 
-  /* Ultra simplified background for performance */
-  body::before {
+  /* Fondo temático */
+  html.light body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8eef7 100%);
+    z-index: -2;
+  }
+
+  html.dark body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
     z-index: -2;
   }
 
-  /* Eliminamos estrellas estáticas: el canvas animado tomará su lugar */
+  /* Desactivamos pseudo-estrellas; usa canvas animado */
   body::after {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-image: none;
     opacity: 0;
     z-index: -1;

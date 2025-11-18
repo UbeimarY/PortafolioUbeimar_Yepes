@@ -1,147 +1,171 @@
 // components/Contact.tsx
 "use client";
+import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Contact() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const payload = {
+      nombre: form.get("name"),
+      email: form.get("email"),
+      asunto: form.get("subject"),
+      mensaje: form.get("message"),
+    };
+    console.log("Contacto:", payload);
+    alert("Gracias por tu mensaje. Te responderé pronto.");
+    e.currentTarget.reset();
+  };
+
   return (
-    <section id="contact" className="relative w-full min-h-screen flex items-center justify-center text-white py-16">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contacto</h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? Me encantaría colaborar contigo!
+    <section id="contact" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Encabezado */}
+        <div className="text-center mb-10">
+          <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-accent border border-border flex items-center justify-center text-accent-foreground text-xl">
+            ✉️
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold">Contacto</h1>
+          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+            ¿Tienes un proyecto en mente? ¡Me encantaría colaborar contigo!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Información de Contacto */}
-          <div className="space-y-8">
+        {/* Grid principal */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Columna izquierda: Información de contacto */}
+          <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold mb-6">Información de Contacto</h2>
-              <p className="text-white/80 leading-relaxed">
-                Estoy siempre abierto a discutir nuevas oportunidades, proyectos interesantes o simplemente charlar sobre tecnología. 
-                No dudes en contactarme a través de cualquiera de estos medios.
+              <h2 className="text-xl font-bold mb-3">Información de Contacto</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Siempre abierto a discutir nuevas oportunidades, proyectos interesantes o simplemente charlar sobre tecnología.
+                Puedes contactarme por cualquiera de estos medios.
               </p>
             </div>
 
-            <div className="space-y-6">
-              {/* Email */}
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/10">
-                <h3 className="font-bold text-lg mb-2 text-blue-400">Email</h3>
-                <a 
-                  href="mailto:ubeimarlyepes@gmail.com" 
-                  className="text-white hover:text-blue-300 transition-colors block mb-1"
-                >
-                  ubeimarlyepes@gmail.com
-                </a>
-                <p className="text-white/70 text-sm">Envíame un mensaje directo</p>
+            {/* Tarjetas */}
+            <div className="space-y-4">
+              <div className="bg-card backdrop-blur-sm p-5 rounded-xl border border-border shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-accent border border-border flex items-center justify-center text-accent-foreground text-xl">
+                    <MdEmail />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Email</h3>
+                    <a href="mailto:ubeimarlyepes@gmail.com" className="text-sm hover:underline">
+                      ubeimarlyepes@gmail.com
+                    </a>
+                    <p className="text-xs text-muted-foreground mt-1">Envíame un mensaje directo</p>
+                  </div>
+                </div>
               </div>
 
-              {/* Teléfono */}
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/10">
-                <h3 className="font-bold text-lg mb-2 text-blue-400">Teléfono</h3>
-                <a 
-                  href="https://wa.me/573135220484" 
-                  className="text-white hover:text-blue-300 transition-colors block mb-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  +57 (313) 522-0484
-                </a>
-                <p className="text-white/70 text-sm">Disponible por WhatsApp</p>
+              <div className="bg-card backdrop-blur-sm p-5 rounded-xl border border-border shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-accent border border-border flex items-center justify-center text-accent-foreground text-xl">
+                    <MdPhone />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Teléfono</h3>
+                    <a href="tel:+573135220484" className="text-sm hover:underline">
+                      +57 (313) 522-0484
+                    </a>
+                    <p className="text-xs text-muted-foreground mt-1">Llamada o WhatsApp</p>
+                  </div>
+                </div>
               </div>
 
-              {/* Ubicación */}
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/10">
-                <h3 className="font-bold text-lg mb-2 text-blue-400">Ubicación</h3>
-                <p className="text-white mb-1">Pasto, Colombia</p>
-                <p className="text-white/70 text-sm">Disponible para trabajar remotamente</p>
+              <div className="bg-card backdrop-blur-sm p-5 rounded-xl border border-border shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-accent border border-border flex items-center justify-center text-accent-foreground text-xl">
+                    <MdLocationOn />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Ubicación</h3>
+                    <p className="text-sm">Pasto, Colombia</p>
+                    <p className="text-xs text-muted-foreground mt-1">Disponible para trabajo remoto</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Redes sociales */}
+            <div className="pt-2">
+              <h4 className="text-sm uppercase tracking-wide text-muted-foreground mb-2">Sígueme en redes</h4>
+              <div className="flex items-center gap-4 text-lg">
+                <a href="#" className="hover:text-blue-500" aria-label="GitHub"><FaGithub /></a>
+                <a href="#" className="hover:text-blue-500" aria-label="LinkedIn"><FaLinkedin /></a>
+                <a href="#" className="hover:text-pink-500" aria-label="Instagram"><FaInstagram /></a>
               </div>
             </div>
           </div>
 
-          {/* Formulario de Contacto */}
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/10">
-            <h2 className="text-2xl font-bold mb-6">Envíame un Mensaje</h2>
-            <form className="space-y-6">
+          {/* Columna derecha: Formulario */}
+          <div className="bg-card backdrop-blur-sm p-6 rounded-xl border border-border shadow-sm">
+            <h3 className="text-lg font-semibold mb-4">Envíame un mensaje</h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
-                    Nombre
-                  </label>
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm">Nombre *</label>
                   <input
-                    type="text"
                     id="name"
                     name="name"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors"
-                    placeholder="Tu nombre"
+                    type="text"
+                    required
+                    className="w-full rounded-lg border border-border bg-card px-3 py-2 text-foreground placeholder:text-muted-foreground"
+                    placeholder="Tu nombre completo"
                   />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
-                    Email
-                  </label>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm">Email *</label>
                   <input
-                    type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors"
+                    type="email"
+                    required
+                    className="w-full rounded-lg border border-border bg-card px-3 py-2 text-foreground placeholder:text-muted-foreground"
                     placeholder="tu@email.com"
                   />
                 </div>
               </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-2">
-                  Asunto
-                </label>
+
+              <div className="space-y-2">
+                <label htmlFor="subject" className="text-sm">Asunto *</label>
                 <input
-                  type="text"
                   id="subject"
                   name="subject"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors"
-                  placeholder="Asunto del mensaje"
+                  type="text"
+                  required
+                  className="w-full rounded-lg border border-border bg-card px-3 py-2 text-foreground placeholder:text-muted-foreground"
+                  placeholder="¿De qué se trata tu proyecto?"
                 />
               </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
-                  Mensaje
-                </label>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm">Mensaje *</label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors resize-none"
-                  placeholder="Cuéntame sobre tu proyecto..."
+                  required
+                  rows={4}
+                  className="w-full rounded-lg border border-border bg-card px-3 py-2 text-foreground placeholder:text-muted-foreground resize-y"
+                  placeholder="Cuéntame más detalles sobre tu proyecto, timeline, presupuesto, etc."
                 />
               </div>
-              
+
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
+                className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-accent border border-border text-accent-foreground hover:bg-accent transition"
+                aria-label="Enviar Mensaje"
               >
-                Enviar Mensaje
+                ✈️ Enviar Mensaje
               </button>
-            </form>
-          </div>
-        </div>
 
-        {/* Redes Sociales */}
-        <div className="text-center mt-16">
-          <h3 className="text-xl font-bold mb-6">Sígueme en redes:</h3>
-          <div className="flex justify-center space-x-6">
-            <a href="#" className="text-white hover:text-blue-400 transition-colors text-lg">
-              LinkedIn
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors text-lg">
-              GitHub
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors text-lg">
-              Twitter
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors text-lg">
-              Instagram
-            </a>
+              <p className="text-xs text-muted-foreground">
+                Respondo a todos los mensajes en menos de 24 horas
+              </p>
+            </form>
           </div>
         </div>
       </div>
