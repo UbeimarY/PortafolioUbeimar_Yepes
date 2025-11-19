@@ -71,6 +71,7 @@ export function useLanguage() {
 }
 
 // contexts/LanguageContext.tsx
+// Dentro del objeto translations, asegúrate de tener estas claves:
 const translations: Translations = {
   "nav.home": { es: "Inicio", en: "Home" },
   "nav.blogs": { es: "Blogs", en: "Blogs" },

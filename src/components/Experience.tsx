@@ -1,50 +1,21 @@
 "use client";
-
 import { useLanguage } from "@/contexts/LanguageContext";
+
+interface ExperienceItem {
+  role: string;
+  company: string;
+  place: string;
+  period: string;
+  badge?: string;
+  summary: string;
+  tech: string[];
+  achievements?: string[];
+}
 
 export default function Experience() {
   const { t } = useLanguage();
-  const experiences = [
-    {
-      role: t("experience.items.1.role"),
-      company: t("experience.items.1.company"),
-      place: t("experience.items.1.place"),
-      period: t("experience.items.1.period"),
-      badge: t("experience.items.1.badge"),
-      summary: t("experience.items.1.summary"),
-      tech: ["React", "Node.js", "Next.js", "TypeScript", "MongoDB"],
-    },
-    {
-      role: t("experience.items.2.role"),
-      company: t("experience.items.2.company"),
-      place: t("experience.items.2.place"),
-      period: t("experience.items.2.period"),
-      badge: t("experience.items.2.badge"),
-      summary: t("experience.items.2.summary"),
-      achievements: [
-        t("experience.items.2.ach1"),
-        t("experience.items.2.ach2"),
-        t("experience.items.2.ach3"),
-        t("experience.items.2.ach4"),
-      ],
-      tech: ["React", "Node.js", "AWS", "TypeScript", "Docker", "PostgreSQL"],
-    },
-    {
-      role: t("experience.items.3.role"),
-      company: t("experience.items.3.company"),
-      place: t("experience.items.3.place"),
-      period: t("experience.items.3.period"),
-      badge: t("experience.items.3.badge"),
-      summary: t("experience.items.3.summary"),
-      achievements: [
-        t("experience.items.3.ach1"),
-        t("experience.items.3.ach2"),
-        t("experience.items.3.ach3"),
-        t("experience.items.3.ach4"),
-      ],
-      tech: ["React", "Node.js", "Next.js", "TypeScript", "MongoDB"],
-    },
-
+  const experiences: ExperienceItem[] = [
+   
     // Artecoser (Multiusos)
     {
       role: t("experience.items.4.role"),
@@ -121,18 +92,22 @@ export default function Experience() {
                   </div>
 
                   <p className="text-muted-foreground mt-4">{exp.summary}</p>
-                  <div className="mt-5">
-                    <h4 className="font-semibold mb-2 text-foreground">{t("experience.highlightsTitle")}</h4>
-                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                      {exp.achievements?.map((a, i) => (<li key={i}>{a}</li>))}
-                    </ul>
-                  </div>
+
+                  {exp.achievements && exp.achievements.length > 0 && (
+                    <div className="mt-5">
+                      <h4 className="font-semibold mb-2 text-foreground">{t("experience.highlightsTitle")}</h4>
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        {exp.achievements.map((a: string, i: number) => (<li key={i}>{a}</li>))}
+                      </ul>
+                    </div>
+                  )}
+
                   <div className="mt-5">
                     <h4 className="font-semibold mb-2 text-foreground">{t("experience.techTitle")}</h4>
                     <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((t) => (
-                        <span key={t} className="px-3 py-1 rounded-full text-xs bg-accent border border-border text-accent-foreground">
-                          {t}
+                      {exp.tech.map((tech: string) => (
+                        <span key={tech} className="px-3 py-1 rounded-full text-xs bg-accent border border-border text-accent-foreground">
+                          {tech}
                         </span>
                       ))}
                     </div>
