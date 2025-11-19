@@ -114,6 +114,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-2 text-xs text-muted-foreground flex items-center justify-center gap-2">
+          <span>{t("footer.dedicated")}</span>
+          <span aria-hidden>•</span>
           <span>{t("footer.inspired")}</span>
           <span aria-hidden>❤️</span>
         </div>
