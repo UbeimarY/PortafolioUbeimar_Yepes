@@ -45,6 +45,7 @@ export default function Experience() {
       tech: ["React", "Node.js", "Next.js", "TypeScript", "MongoDB"],
     },
 
+    // Artecoser (Multiusos)
     {
       role: t("experience.items.4.role"),
       company: t("experience.items.4.company"),
@@ -53,6 +54,36 @@ export default function Experience() {
       badge: t("experience.items.4.badge"),
       summary: t("experience.items.4.summary"),
       tech: ["MicroChip", "Electrónica"],
+    },
+    // Mecánico Independiente
+    {
+      role: t("experience.items.5.role"),
+      company: t("experience.items.5.company"),
+      place: t("experience.items.5.place"),
+      period: t("experience.items.5.period"),
+      badge: t("experience.items.5.badge"),
+      summary: t("experience.items.5.summary"),
+      tech: ["Mecánica Automotriz"],
+    },
+    // Docente Independiente
+    {
+      role: t("experience.items.6.role"),
+      company: t("experience.items.6.company"),
+      place: t("experience.items.6.place"),
+      period: t("experience.items.6.period"),
+      badge: t("experience.items.6.badge"),
+      summary: t("experience.items.6.summary"),
+      tech: ["Educación"],
+    },
+    // Programación de Servidores (SurviDeath)
+    {
+      role: t("experience.items.7.role"),
+      company: t("experience.items.7.company"),
+      place: t("experience.items.7.place"),
+      period: t("experience.items.7.period"),
+      badge: t("experience.items.7.badge"),
+      summary: t("experience.items.7.summary"),
+      tech: ["Java", "Minecraft", "Plugins"],
     },
   ];
 
