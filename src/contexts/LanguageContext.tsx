@@ -182,6 +182,7 @@ const translations: Translations = {
   },
 
   // Experience
+  // Dentro del objeto 'translations' en el bloque de Experiencia
   "experience.title": { es: "Mi Experiencia", en: "My Experience" },
   "experience.subtitle": {
     es: "Mi trayectoria profesional desarrollando soluciones tecnológicas innovadoras",
@@ -375,5 +376,16 @@ const translations: Translations = {
   "experience.items.6.summary": {
     es: "Docente en diferentes áreas del saber para estudiantes de 9 a 11.",
     en: "Teacher in various knowledge areas for students from 9th to 11th grade."
+  },
+
+  // Nuevo: Programación de Servidores (SurviDeath)
+  "experience.items.7.role": { es: "Programación de Servidores", en: "Server Programming" },
+  "experience.items.7.company": { es: "Proyecto Independiente", en: "Independent Project" },
+  "experience.items.7.place": { es: "Remoto", en: "Remote" },
+  "experience.items.7.period": { es: "2024", en: "2024" },
+  "experience.items.7.badge": { es: "", en: "" },
+  "experience.items.7.summary": {
+    es: "Proyecto denominado SurviDeath, creado un servidor con plugins para el juego Minecraft.",
+    en: "Project called SurviDeath, created a server with plugins for the Minecraft game."
   },
 }
