@@ -1,15 +1,17 @@
 // components/AboutMe.tsx
 "use client";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function AboutMe() {
+  const { t } = useLanguage();
   return (
     <section id="about" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
       <div className="container mx-auto px-6">
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">About Me</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">{t("about.title")}</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Desarrollador, escritor, músico y docente apasionado por crear experiencias digitales excepcionales
+            {t("about.subtitle")}
           </p>
         </div>
 

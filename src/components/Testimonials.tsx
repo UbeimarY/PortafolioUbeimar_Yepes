@@ -3,16 +3,22 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Testimonials() {
+  const { t, lang } = useLanguage();
+
   const testimonials = [
     {
       id: 1,
-      text: "Trabajar con Ubeimar en proyectos académicos ha sido una experiencia enriquecedora. Su paciencia para enseñar conceptos complejos y su habilidad para transformar ideas en código funcional son realmente notables. Es un compañero valioso en cualquier equipo.",
+      text:
+        lang === "es"
+          ? "Trabajar con Ubeimar en proyectos académicos ha sido una experiencia enriquecedora..."
+          : "Working with Ubeimar on academic projects has been enriching...",
       author: "Sebastian Rojas",
-      role: "Estudiante de Ingeniería de Software",
-      institution: "Universidad Cooperativa",
-      avatar: "/avatars/sebastian-rojas.jpeg" 
+      role: lang === "es" ? "Estudiante de Ingeniería de Software" : "Software Engineering Student",
+      institution: lang === "es" ? "Universidad Cooperativa" : "Cooperative University",
+      avatar: "/avatars/sebastian-rojas.jpeg",
     },
     {
       id: 2,
@@ -73,12 +79,9 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
       <div className="container mx-auto px-6 max-w-4xl">
-        {/* Encabezado */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Testimonios</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Lo que dicen mis compañeros y colaboradores sobre trabajar conmigo
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("testimonials.title")}</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("testimonials.subtitle")}</p>
         </div>
 
         {/* Carrusel */}
@@ -173,30 +176,17 @@ export default function Testimonials() {
 
         {/* Llamada a la acción */}
         <div className="text-center bg-card backdrop-blur-sm rounded-2xl p-8 border border-border mt-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            ¿Te gustaría ser el próximo en compartir una experiencia exitosa?
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Si hemos trabajado juntos en algún proyecto, me encantaría escuchar tu experiencia.
-            Tu testimonio puede ayudar a otros a conocer mi forma de trabajo y colaboración.
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("testimonials.ctaTitle")}</h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">{t("testimonials.ctaDesc")}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="bg-accent hover:bg-accent text-accent-foreground font-medium py-3 px-8 rounded-lg transition-colors duration-300 inline-block text-center"
-            >
-              Contáctame
+            <a href="#contact" className="bg-accent hover:bg-accent text-accent-foreground font-medium py-3 px-8 rounded-lg transition-colors duration-300 inline-block text-center">
+              {t("testimonials.ctaContact")}
             </a>
-            <button
-              className="border border-border hover:bg-accent text-foreground font-medium py-3 px-8 rounded-lg transition-all duration-300"
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              Dejar Testimonio
+            <button className="border border-border hover:bg-accent text-foreground font-medium py-3 px-8 rounded-lg transition-all duration-300" onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+            }}>
+              {t("testimonials.ctaLeave")}
             </button>
           </div>
         </div>

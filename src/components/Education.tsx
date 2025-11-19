@@ -1,7 +1,10 @@
 // components/Education.tsx
 "use client";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 export default function Education() {
+  const { t } = useLanguage();
   const education = [
     {
       title: "Bachiller Académico",
@@ -23,7 +26,7 @@ export default function Education() {
     <section id="education" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold">Mi Educación</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("education.title")}</h2>
           <p className="text-muted-foreground mt-2">Mi formación académica y certificaciones que respaldan mi experiencia profesional</p>
         </div>
 
@@ -51,7 +54,7 @@ export default function Education() {
                   </div>
 
                   <div className="mt-5">
-                    <h4 className="font-semibold mb-2 text-foreground">Logros destacados:</h4>
+                    <h4 className="font-semibold mb-2 text-foreground">{t("education.highlightsTitle")}</h4>
                     <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                       {ed.highlights.map((h, i) => (<li key={i}>{h}</li>))}
                     </ul>

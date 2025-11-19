@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from 'sonner';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export const metadata: Metadata = {
   title: 'Ubeimar Yepes - Full Stack Developer & UI/UX Designer',
@@ -33,15 +34,17 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className="antialiased">
-        <ThemeProvider>
-          {children}
-          <Toaster 
-            position="top-right"
-            theme="system" // Esto hará que Toaster siga el tema del sistema
-            closeButton
-            richColors
-          />
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider>
+            {children}
+            <Toaster 
+              position="top-right"
+              theme="system"
+              closeButton
+              richColors
+            />
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

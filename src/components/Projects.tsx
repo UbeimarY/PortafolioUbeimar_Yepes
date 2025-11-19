@@ -1,24 +1,30 @@
 // components/Projects.tsx
 "use client";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Projects() {
+  const { t, lang } = useLanguage();
   const featured = [
     {
-      title: "E-Commerce Platform",
-      badge: "Destacado",
+      title: lang === "es" ? "E-Commerce Platform" : "E-Commerce Platform",
+      badge: lang === "es" ? "Destacado" : "Featured",
       description:
-        "Plataforma completa de comercio electrónico con dashboard administrativo, gestión de inventario y procesamiento de pagos en tiempo real.",
+        lang === "es"
+          ? "Plataforma completa de comercio electrónico con dashboard administrativo, gestión de inventario y procesamiento de pagos en tiempo real."
+          : "Complete e-commerce platform with admin dashboard, inventory management and real-time payments.",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
       image: "/globe.svg",
       demoUrl: "#",
       repoUrl: "#",
     },
     {
-      title: "Analytics Dashboard",
-      badge: "Destacado",
+      title: lang === "es" ? "Analytics Dashboard" : "Analytics Dashboard",
+      badge: lang === "es" ? "Destacado" : "Featured",
       description:
-        "Dashboard de análisis con visualizaciones interactivas, reportes autodidácticos e integración con múltiples fuentes de datos.",
+        lang === "es"
+          ? "Dashboard de análisis con visualizaciones interactivas, reportes autodidácticos e integración con múltiples fuentes de datos."
+          : "Analytics dashboard with interactive visualizations, self-service reports and integration with multiple data sources.",
       tech: ["Next.js", "TypeScript", "Supabase", "Chart.js"],
       image: "/window.svg",
       demoUrl: "#",
@@ -27,17 +33,17 @@ export default function Projects() {
   ];
 
   const others = [
-    { title: "Task Management App", image: "/file.svg" },
-    { title: "Design System + Docs", image: "/next.svg" },
-    { title: "AI Content Generator", image: "/globe.svg" },
-    { title: "Mobile Banking App", image: "/window.svg" },
+    { title: lang === "es" ? "App de Gestión de Tareas" : "Task Management App", image: "/file.svg" },
+    { title: lang === "es" ? "Design System + Docs" : "Design System + Docs", image: "/next.svg" },
+    { title: lang === "es" ? "Generador de Contenido con IA" : "AI Content Generator", image: "/globe.svg" },
+    { title: lang === "es" ? "App de Banca Móvil" : "Mobile Banking App", image: "/window.svg" },
   ];
 
   return (
     <section id="projects" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold">Mis Proyectos</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("projects.title")}</h2>
           <p className="text-muted-foreground mt-2">Una selección de proyectos que demuestran mis habilidades técnicas y creatividad</p>
         </div>
 
@@ -65,7 +71,7 @@ export default function Projects() {
                 </div>
                 <div className="flex items-center gap-3">
                   <a href={p.demoUrl} className="w-full text-center text-sm px-3 py-2 rounded-lg bg-accent border border-border hover:bg-accent transition">
-                    Ver Demo
+                    {t("projects.viewDemo")}
                   </a>
                   <a href={p.repoUrl} className="text-sm px-3 py-2 rounded-lg bg-card border border-border hover:bg-accent transition" aria-label="Ver repositorio">
                     💻
@@ -76,7 +82,7 @@ export default function Projects() {
           ))}
         </div>
 
-        <h3 className="text-sm uppercase tracking-wide text-muted-foreground mt-10 mb-4">Otros Proyectos</h3>
+        <h3 className="text-sm uppercase tracking-wide text-muted-foreground mt-10 mb-4">{t("projects.others")}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {others.map((o) => (
             <div key={o.title} className="bg-card backdrop-blur-sm rounded-xl border border-border overflow-hidden">

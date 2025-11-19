@@ -1,7 +1,20 @@
 "use client";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 export default function Experience() {
+  const { t, lang } = useLanguage();
   const experiences = [
+    {
+      role: lang === "es" ? "Desarrollador Full Stack" : "Full Stack Developer",
+      company: "Tech Solutions",
+      place: lang === "es" ? "Remoto" : "Remote",
+      period: lang === "es" ? "2023 - Presente" : "2023 - Present",
+      description: lang === "es"
+        ? "Construcción de aplicaciones web modernas con React, Next.js y Node.js."
+        : "Building modern web applications using React, Next.js and Node.js.",
+      tech: ["React", "Node.js", "Next.js", "TypeScript", "MongoDB"],
+    },
     {
       role: "Senior Full Stack Developer",
       company: "TechCorp Solutions",
@@ -40,8 +53,8 @@ export default function Experience() {
     <section id="experience" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold">Mi Experiencia</h2>
-          <p className="text-muted-foreground mt-2">Mi trayectoria profesional desarrollando soluciones tecnológicas innovadoras</p>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("experience.title")}</h2>
+          <p className="text-muted-foreground mt-2">{t("experience.subtitle")}</p>
         </div>
 
         <div className="relative">
@@ -71,7 +84,7 @@ export default function Experience() {
                   <div className="mt-5">
                     <h4 className="font-semibold mb-2 text-foreground">Logros principales:</h4>
                     <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                      {exp.achievements.map((a, i) => (<li key={i}>{a}</li>))}
+                      {exp.achievements?.map((a, i) => (<li key={i}>{a}</li>))}
                     </ul>
                   </div>
                   <div className="mt-5">

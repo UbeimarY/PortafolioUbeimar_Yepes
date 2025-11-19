@@ -1,16 +1,20 @@
 // components/Blogs.tsx
 "use client";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Blogs() {
+  const { t, lang } = useLanguage();
+
   const posts = [
     {
-      title: "El Futuro del Desarrollo Frontend con React 18",
-      date: "15 de Marzo, 2024",
-      readTime: "8 min",
-      tags: ["React", "Rendimiento"],
-      excerpt:
-        "Exploramos las nuevas características de React 18 y cómo están revolucionando el desarrollo de aplicaciones web modernas.",
+      title: lang === "es" ? "El Futuro del Desarrollo Frontend con React 18" : "The Future of Frontend with React 18",
+      date: lang === "es" ? "15 de Marzo, 2024" : "March 15, 2024",
+      readTime: lang === "es" ? "8 min" : "8 min",
+      tags: lang === "es" ? ["React", "Rendimiento"] : ["React", "Performance"],
+      excerpt: lang === "es"
+        ? "Exploramos las nuevas características de React 18 y cómo están revolucionando el desarrollo de aplicaciones web modernas."
+        : "Exploring new features in React 18 and how they reshape modern web apps.",
       image: "/next.svg",
       url: "#",
     },
@@ -50,8 +54,8 @@ export default function Blogs() {
     <section id="blog" className="relative w-full min-h-screen flex items-center justify-center text-foreground py-16">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold">Mis Blogs</h2>
-          <p className="text-muted-foreground mt-2">Comparto conocimientos, experiencias y tendencias en desarrollo web y tecnología</p>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("blogs.title")}</h2>
+          <p className="text-muted-foreground mt-2">{t("blogs.subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -75,7 +79,7 @@ export default function Blogs() {
                   ))}
                 </div>
                 <a href={p.url} className="inline-block text-sm px-3 py-2 rounded-lg bg-accent border border-border hover:bg-accent transition">
-                  Leer artículo
+                  {t("blogs.read")}
                 </a>
               </div>
             </article>
