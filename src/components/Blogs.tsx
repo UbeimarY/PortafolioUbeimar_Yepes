@@ -22,8 +22,8 @@ export default function Blogs() {
       readTime: t("blogs.post2.readTime"),
       tags: [t("blogs.post2.tag1"), t("blogs.post2.tag2")],
       excerpt: t("blogs.post2.excerpt"),
-      image: "/globe.svg",
-      url: "#",
+      image: "/blog2.png",
+      url: "https://medium.com/@ubeimarlyepes/typescript-mejores-pr%C3%A1cticas-para-proyectos-grandes-d3d345ba1ec9",
     },
     {
       title: t("blogs.post3.title"),
