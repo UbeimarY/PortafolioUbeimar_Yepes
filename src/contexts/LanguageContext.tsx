@@ -345,4 +345,35 @@ const translations: Translations = {
   "footer.service.uiux": { es: "Diseño UI/UX", en: "UI/UX Design" },
   "footer.service.consulting": { es: "Consultoría Técnica", en: "Technical Consulting" },
   "footer.service.translation": { es: "Traducción Técnica", en: "Technical Translation" },
-};
+
+  // Añadidos: Artecoser, Mecánico y Docente (dentro de translations)
+  "experience.items.4.role": { es: "Multiusos", en: "Multi-skilled" },
+  "experience.items.4.company": { es: "Artecoser", en: "Artecoser" },
+  "experience.items.4.place": { es: "Presencial", en: "On-site" },
+  "experience.items.4.period": { es: "2025 - Presente", en: "2025 - Present" },
+  "experience.items.4.badge": { es: "Tiempo Completo", en: "Full Time" },
+  "experience.items.4.summary": {
+    es: "Trabajo en Multifunciones, Programador de Bordadoras y Tecnologías MicroChip.",
+    en: "Multifunctional work, Embroidery programmer and MicroChip technologies."
+  },
+
+  "experience.items.5.role": { es: "Mecánico", en: "Mechanic" },
+  "experience.items.5.company": { es: "Independiente", en: "Freelance" },
+  "experience.items.5.place": { es: "Presencial", en: "On-site" },
+  "experience.items.5.period": { es: "2022 - Presente", en: "2022 - Present" },
+  "experience.items.5.badge": { es: "", en: "" },
+  "experience.items.5.summary": {
+    es: "Mantenimiento a vehículos tipo carro.",
+    en: "Maintenance of car-type vehicles."
+  },
+
+  "experience.items.6.role": { es: "Docente", en: "Teacher" },
+  "experience.items.6.company": { es: "Independiente", en: "Freelance" },
+  "experience.items.6.place": { es: "Presencial", en: "On-site" },
+  "experience.items.6.period": { es: "2022 - Presente", en: "2022 - Present" },
+  "experience.items.6.badge": { es: "", en: "" },
+  "experience.items.6.summary": {
+    es: "Docente en diferentes áreas del saber para estudiantes de 9 a 11.",
+    en: "Teacher in various knowledge areas for students from 9th to 11th grade."
+  },
+}

@@ -44,6 +44,16 @@ export default function Experience() {
       ],
       tech: ["React", "Node.js", "Next.js", "TypeScript", "MongoDB"],
     },
+
+    {
+      role: t("experience.items.4.role"),
+      company: t("experience.items.4.company"),
+      place: t("experience.items.4.place"),
+      period: t("experience.items.4.period"),
+      badge: t("experience.items.4.badge"),
+      summary: t("experience.items.4.summary"),
+      tech: ["MicroChip", "Electrónica"],
+    },
   ];
 
   return (
