@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { MdTranslate } from "react-icons/md";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -10,12 +10,34 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const { toggleLang, lang, t } = useLanguage();
 
+  // refs para detectar clic fuera
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const toggleRef = useRef<HTMLButtonElement | null>(null);
+
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsMenuOpen(false);
     };
+
+    const onClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (!isMenuOpen) return;
+      const target = e.target as Node;
+      const menuEl = menuRef.current;
+      const toggleEl = toggleRef.current;
+      const clickInsideMenu = !!(menuEl && menuEl.contains(target));
+      const clickOnToggle = !!(toggleEl && toggleEl.contains(target));
+      if (!clickInsideMenu && !clickOnToggle) setIsMenuOpen(false);
+    };
+
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("touchstart", onClickOutside);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("touchstart", onClickOutside);
+    };
   }, [isMenuOpen]);
   const links = [
     { name: t("nav.home"), id: "hero" },
@@ -85,6 +107,7 @@ export default function Navbar() {
             aria-label="Abrir menú"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
+            ref={toggleRef}
           >
             ☰
           </button>
@@ -101,6 +124,7 @@ export default function Navbar() {
           />
           <div
             id="mobile-menu"
+            ref={menuRef}
             className="md:hidden fixed top-[56px] left-0 right-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-t border-gray-200 dark:border-white/5"
           >
             <ul className="px-6 py-4 space-y-4">
