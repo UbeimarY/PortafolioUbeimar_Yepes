@@ -14,9 +14,9 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold">Ubeimar Yepes</h3>
             <p className="mt-4 text-muted-foreground">
-              Desarrollador Full Stack & UI/UX Designer especializado en crear experiencias digitales
-              excepcionales con tecnologías modernas.
+              {t("footer.bio")}
             </p>
+            {/* Contact info y redes */}
             <div className="mt-6 space-y-2 text-sm">
               <div className="flex items-center gap-3">
                 <span>✉️</span>
@@ -95,13 +95,12 @@ export default function Footer() {
 
           <div>
             <h4 className="text-lg font-semibold">{t("footer.services")}</h4>
-            {/* Lista de servicios puede permanecer bilingüe si lo deseas */}
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>Desarrollo Frontend</li>
-              <li>Desarrollo Backend</li>
-              <li>UI/UX Design</li>
-              <li>Consultoría Técnica</li>
-              <li>Traducción Técnica</li>
+              <li>{t("footer.service.frontend")}</li>
+              <li>{t("footer.service.backend")}</li>
+              <li>{t("footer.service.uiux")}</li>
+              <li>{t("footer.service.consulting")}</li>
+              <li>{t("footer.service.translation")}</li>
             </ul>
           </div>
         </div>

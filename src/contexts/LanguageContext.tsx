@@ -298,14 +298,17 @@ const translations: Translations = {
   "testimonials.items.4.author": { es: "Samuel Bermejo", en: "Samuel Bermejo" },
   "testimonials.items.4.role": { es: "Fujitsu Technology Solutions S.A.", en: "Fujitsu Technology Solutions S.A." },
   "testimonials.items.4.institution": { es: "Andalucia, España", en: "Andalusia, Spain" },
-
-  // Contact
+  
   "contact.title": { es: "Contacto", en: "Contact" },
   "contact.subtitle": {
     es: "Siempre abierto a discutir nuevas oportunidades, proyectos interesantes o simplemente charlar sobre tecnología. Puedes contactarme por cualquiera de estos medios.",
     en: "Always open to discussing new opportunities, interesting projects, or simply chatting about technology. You can contact me through any of these channels.",
   },
   "contact.info": { es: "Información de contacto", en: "Contact Info" },
+  "contact.infoDesc": {
+    es: "Siempre abierto a discutir nuevas oportunidades, proyectos interesantes o simplemente charlar sobre tecnología. Puedes contactarme por cualquiera de estos medios.",
+    en: "Always open to discussing new opportunities, interesting projects, or simply chatting about technology. You can contact me through any of these channels.",
+  },
   "contact.email": { es: "Correo electrónico", en: "Email" },
   "contact.emailNote": { es: "Haz clic para escribirme por Gmail", en: "Click to write me via Gmail" },
   "contact.phone": { es: "Teléfono", en: "Phone" },
@@ -327,34 +330,19 @@ const translations: Translations = {
   "contact.submit": { es: "Enviar", en: "Send" },
   "contact.responseTime": { es: "Tiempo de respuesta: 24‑48 horas", en: "Response time: 24‑48 hours" },
 
-  // Bajo el bloque “Contact Info”
-  "contact.infoDesc": {
-    es: "Siempre abierto a discutir nuevas oportunidades, proyectos interesantes o simplemente charlar sobre tecnología. Puedes contactarme por cualquiera de estos medios.",
-    en: "Always open to discussing new opportunities, interesting projects, or simply chatting about technology. You can contact me through any of these channels.",
-  },
-  "contact.email": { es: "Correo electrónico", en: "Email" },
-  "contact.emailNote": { es: "Haz clic para escribirme por Gmail", en: "Click to write me via Gmail" },
-  "contact.phone": { es: "Teléfono", en: "Phone" },
-  "contact.phoneNote": { es: "Envíame un mensaje por WhatsApp", en: "Send me a message on WhatsApp" },
-  "contact.location": { es: "Ubicación", en: "Location" },
-  "contact.locationValue": { es: "Pasto, Colombia", en: "Pasto, Colombia" },
-  "contact.remote": { es: "Trabajo remoto disponible", en: "Remote work available" },
-  "contact.socials": { es: "Contactos sociales", en: "Socials" },
-
-  "contact.formTitle": { es: "Formulario de contacto", en: "Contact Form" },
-  "contact.nameLabel": { es: "Nombre", en: "Name" },
-  "contact.namePh": { es: "Tu nombre", en: "Your name" },
-  "contact.emailLabel": { es: "Correo", en: "Email" },
-  "contact.subjectLabel": { es: "Asunto", en: "Subject" },
-  "contact.messageLabel": { es: "Mensaje", en: "Message" },
-  "contact.messagePh": { es: "¿De qué se trata tu proyecto?", en: "What is your project about?" },
-  "contact.submit": { es: "Enviar", en: "Send" },
-  "contact.responseTime": { es: "Tiempo de respuesta: 24‑48 horas", en: "Response time: 24‑48 hours" },
-
-  // Footer
+  // Footer — ÚNICA DEFINICIÓN SIN DUPLICADOS
   "footer.quicklinks": { es: "Enlaces rápidos", en: "Quick Links" },
   "footer.services": { es: "Servicios", en: "Services" },
   "footer.privacy": { es: "Privacidad", en: "Privacy" },
   "footer.terms": { es: "Términos", en: "Terms" },
   "footer.inspired": { es: "Inspirado en Celi", en: "Inspired by Celi" },
+  "footer.bio": {
+    es: "Desarrollador Full Stack & UI/UX Designer especializado en crear experiencias digitales excepcionales con tecnologías modernas.",
+    en: "Full Stack Developer & UI/UX Designer specializing in creating exceptional digital experiences with modern technologies.",
+  },
+  "footer.service.frontend": { es: "Desarrollo Frontend", en: "Frontend Development" },
+  "footer.service.backend": { es: "Desarrollo Backend", en: "Backend Development" },
+  "footer.service.uiux": { es: "Diseño UI/UX", en: "UI/UX Design" },
+  "footer.service.consulting": { es: "Consultoría Técnica", en: "Technical Consulting" },
+  "footer.service.translation": { es: "Traducción Técnica", en: "Technical Translation" },
 };
