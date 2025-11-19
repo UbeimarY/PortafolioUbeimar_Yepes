@@ -38,11 +38,9 @@ export default function Contact() {
             <div>
               <h2 className="text-xl font-bold mb-3">{t("contact.info")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Siempre abierto a discutir nuevas oportunidades, proyectos interesantes o simplemente charlar sobre tecnología.
-                Puedes contactarme por cualquiera de estos medios.
+                {t("contact.infoDesc")}
               </p>
             </div>
-
             {/* Tarjetas */}
             <div className="space-y-4">
               <div className="bg-card backdrop-blur-sm p-5 rounded-xl border border-border shadow-sm">
@@ -143,7 +141,7 @@ export default function Contact() {
                     type="email"
                     required
                     className="w-full rounded-lg border border-border bg-card px-3 py-2 text-foreground placeholder:text-muted-foreground"
-                    placeholder="tu@email.com"
+                    placeholder={t("contact.emailPh")}
                   />
                 </div>
               </div>
@@ -156,7 +154,7 @@ export default function Contact() {
                   type="text"
                   required
                   className="w-full rounded-lg border border-border bg-card px-3 py-2 text-foreground placeholder:text-muted-foreground"
-                  placeholder="¿De qué se trata tu proyecto?"
+                  placeholder={t("contact.subjectPh")}
                 />
               </div>
 

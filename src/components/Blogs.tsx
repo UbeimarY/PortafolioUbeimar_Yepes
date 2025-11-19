@@ -4,47 +4,42 @@ import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Blogs() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
 
   const posts = [
     {
-      title: lang === "es" ? "El Futuro del Desarrollo Frontend con React 18" : "The Future of Frontend with React 18",
-      date: lang === "es" ? "15 de Marzo, 2024" : "March 15, 2024",
-      readTime: lang === "es" ? "8 min" : "8 min",
-      tags: lang === "es" ? ["React", "Rendimiento"] : ["React", "Performance"],
-      excerpt: lang === "es"
-        ? "Exploramos las nuevas características de React 18 y cómo están revolucionando el desarrollo de aplicaciones web modernas."
-        : "Exploring new features in React 18 and how they reshape modern web apps.",
+      title: t("blogs.post1.title"),
+      date: t("blogs.post1.date"),
+      readTime: t("blogs.post1.readTime"),
+      tags: [t("blogs.post1.tag1"), t("blogs.post1.tag2")],
+      excerpt: t("blogs.post1.excerpt"),
       image: "/next.svg",
       url: "#",
     },
     {
-      title: "TypeScript: Mejores Prácticas para Proyectos Grandes",
-      date: "24 de Marzo, 2024",
-      readTime: "10 min",
-      tags: ["TypeScript", "Escalabilidad"],
-      excerpt:
-        "Una guía completa con patrones efectivos para mejorar TypeScript y entregar código robusto en proyectos empresariales grandes.",
+      title: t("blogs.post2.title"),
+      date: t("blogs.post2.date"),
+      readTime: t("blogs.post2.readTime"),
+      tags: [t("blogs.post2.tag1"), t("blogs.post2.tag2")],
+      excerpt: t("blogs.post2.excerpt"),
       image: "/globe.svg",
       url: "#",
     },
     {
-      title: "Microservicios con Node.js y Docker",
-      date: "10 de Febrero, 2024",
-      readTime: "15 min",
-      tags: ["Node.js", "Docker", "Observabilidad"],
-      excerpt:
-        "Cómo diseñar y desplegar una arquitectura de microservicios escalable utilizando Node.js, Express y Docker.",
+      title: t("blogs.post3.title"),
+      date: t("blogs.post3.date"),
+      readTime: t("blogs.post3.readTime"),
+      tags: [t("blogs.post3.tag1"), t("blogs.post3.tag2"), t("blogs.post3.tag3")],
+      excerpt: t("blogs.post3.excerpt"),
       image: "/window.svg",
       url: "#",
     },
     {
-      title: "Design Systems: De la Teoría a la Práctica",
-      date: "25 de Febrero, 2024",
-      readTime: "9 min",
-      tags: ["UI/UX", "Componentización"],
-      excerpt:
-        "Mi experiencia creando y manteniendo design systems escalables, claves de desacoplamiento y buenas prácticas de implementación.",
+      title: t("blogs.post4.title"),
+      date: t("blogs.post4.date"),
+      readTime: t("blogs.post4.readTime"),
+      tags: [t("blogs.post4.tag1"), t("blogs.post4.tag2")],
+      excerpt: t("blogs.post4.excerpt"),
       image: "/file.svg",
       url: "#",
     },
@@ -89,10 +84,10 @@ export default function Blogs() {
         <div className="text-center mt-10">
           <div className="inline-flex gap-3">
             <a href="#" className="text-sm px-4 py-2 rounded-lg bg-accent border border-border hover:bg-accent transition">
-              Suscríbete al Newsletter
+              {t("blogs.newsletter")}
             </a>
             <a href="#" className="text-sm px-4 py-2 rounded-lg bg-card border border-border hover:bg-accent transition">
-              Ver Todos los Artículos
+              {t("blogs.viewAll")}
             </a>
           </div>
         </div>

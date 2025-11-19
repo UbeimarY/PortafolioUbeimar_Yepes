@@ -11,38 +11,36 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      text:
-        lang === "es"
-          ? "Trabajar con Ubeimar en proyectos académicos ha sido una experiencia enriquecedora..."
-          : "Working with Ubeimar on academic projects has been enriching...",
-      author: "Sebastian Rojas",
-      role: lang === "es" ? "Estudiante de Ingeniería de Software" : "Software Engineering Student",
-      institution: lang === "es" ? "Universidad Cooperativa" : "Cooperative University",
+      text: t("testimonials.items.1.text"),
+      author: t("testimonials.items.1.author"),
+      role: t("testimonials.items.1.role"),
+      institution: t("testimonials.items.1.institution"),
       avatar: "/avatars/sebastian-rojas.jpeg",
     },
     {
       id: 2,
-      text: "Ubeimar demuestra una capacidad excepcional para resolver problemas complejos y su dedicación en cada proyecto es inspiradora. Su enfoque metódico y atención al detalle garantizan resultados de alta calidad en todos los trabajos colaborativos.",
-      author: "Celeste Paz",
-      role: "Estudiante",
-      avatar: "/avatars/celeste-paz.jpeg"
+      text: t("testimonials.items.2.text"),
+      author: t("testimonials.items.2.author"),
+      role: t("testimonials.items.2.role"),
+      institution: t("testimonials.items.2.institution"),
+      avatar: "/avatars/celeste-paz.jpeg",
     },
     {
       id: 3,
-      text: "Como colaborador, Ubeimar aporta no solo habilidades técnicas sólidas, sino también una actitud positiva y colaborativa. Su capacidad para explicar conceptos técnicos de manera clara lo convierte en un recurso invaluable para cualquier equipo de desarrollo.",
-      author: "Juan Pablo Lucero",
-      role: "Estudiante de Ingeniería de Software",
-      institution: "Universidad Cooperativa",
-      avatar: "/avatars/juan-lucero.jpeg"
+      text: t("testimonials.items.3.text"),
+      author: t("testimonials.items.3.author"),
+      role: t("testimonials.items.3.role"),
+      institution: t("testimonials.items.3.institution"),
+      avatar: "/avatars/juan-lucero.jpeg",
     },
     {
       id: 4,
-      text: "Colaborar con Ubeimar me ha demostrado el valor de alguien que no se detiene. Su constancia para aprender, refinar su trabajo y avanzar sin perder el enfoque lo vuelve admirable. Además de ser un amigo en el que se puede confiar, aporta claridad y disciplina en cada proyecto. Su manera de crecer y hacer que los demás crezcan con él marca la diferencia en cualquier equipo!",
-      author: "Samuel Bermejo",
-      role: "Fujitsu Technology Solutions S.A.",
-      institution: "Andalucia, España",
-      avatar: "/avatars/samuel-bermejo.jpeg"
-    }
+      text: t("testimonials.items.4.text"),
+      author: t("testimonials.items.4.author"),
+      role: t("testimonials.items.4.role"),
+      institution: t("testimonials.items.4.institution"),
+      avatar: "/avatars/samuel-bermejo.jpeg",
+    },
   ];
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -114,10 +112,14 @@ export default function Testimonials() {
               <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-blue-400/50 mx-auto">
                 {!imageErrors[testimonials[currentTestimonial].id] ? (
                   <Image
+                    key={testimonials[currentTestimonial].id}
                     src={testimonials[currentTestimonial].avatar}
                     alt={testimonials[currentTestimonial].author}
-                    fill
-                    className="object-cover"
+                    width={80}
+                    height={80}
+                    sizes="80px"
+                    className="object-cover w-20 h-20"
+                    priority={currentTestimonial === 0}
                     onError={() => handleImageError(testimonials[currentTestimonial].id)}
                   />
                 ) : (

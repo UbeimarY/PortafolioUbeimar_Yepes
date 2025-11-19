@@ -15,10 +15,8 @@ export default function AboutMe() {
           </p>
         </div>
 
-        {/* Tarjeta central: dos columnas como en la imagen */}
         <div className="max-w-5xl mx-auto bg-card backdrop-blur-sm rounded-2xl p-8 border border-border">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Columna izquierda: líneas + texto + chips */}
             <div className="space-y-6">
               <div className="space-y-3">
                 <div className="h-2 w-20 bg-accent rounded"></div>
@@ -31,13 +29,14 @@ export default function AboutMe() {
               </div>
 
               <p className="text-muted-foreground leading-relaxed">
-                Soy un desarrollador full stack especializado en crear aplicaciones web modernas con React, TypeScript, Next.js y Node.js.
-                Mi expertise incluye desarrollo de servicios con Python, experiencia en Java y conocimientos en programación de bajo nivel para embebidos y microchips.
-                Más allá de la programación, escribo y exploro narrativas digitales y música, con compromiso en formar las próximas generaciones de desarrolladores.
+                {t("about.p1")}
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t("about.p2")}
               </p>
 
               <div className="flex flex-wrap gap-3">
-                {["React", "Next.js", "TypeScript", "Node.js", "Python"].map((tag) => (
+                {["React", "Next.js", "TypeScript", "Node.js", "Python", "Figma"].map((tag) => (
                   <span key={tag} className="px-3 py-1 rounded-full text-sm bg-accent border border-border text-accent-foreground hover:bg-accent transition">
                     {tag}
                   </span>
@@ -45,52 +44,55 @@ export default function AboutMe() {
               </div>
             </div>
 
-            {/* Columna derecha: imagen + título vertical */}
-            <div className="flex justify-center">
-              <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-xl overflow-hidden border border-border shadow-2xl">
-                <Image src="/profile.jpeg" alt="UBER" width={288} height={288} className="object-cover w-full h-full" priority />
+            <div className="flex justify-center relative">
+              <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-xl overflow-hidden border border-border shadow-2xl">
+                <Image src="/profile.jpeg" alt="UBER" width={320} height={320} className="object-cover w-full h-full" priority />
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute -right-6 top-6 w-24 h-24 rounded-full bg-accent blur-xl" />
+                  <div className="absolute -right-10 bottom-6 w-28 h-28 rounded-full bg-accent/60 blur-2xl" />
+                  <div className="absolute -right-16 bottom-24 w-20 h-20 rounded-full bg-accent/40 blur-2xl" />
                 </div>
               </div>
-              <div className="hidden md:flex flex-col items-center gap-3 font-extrabold text-3xl text-muted-foreground tracking-widest ml-6">
-                <span>U</span><span>B</span><span>E</span><span>R</span>
+              <div className="hidden md:flex flex-col items-center gap-2 font-black tracking-widest ml-6 select-none">
+                <span className="text-6xl md:text-7xl lg:text-8xl text-muted-foreground/70">U</span>
+                <span className="text-6xl md:text-7xl lg:text-8xl text-muted-foreground/70">B</span>
+                <span className="text-6xl md:text-7xl lg:text-8xl text-muted-foreground/70">E</span>
+                <span className="text-6xl md:text-7xl lg:text-8xl text-muted-foreground/70">R</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Tarjetas inferiores con iconos como en el diseño */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mt-10">
           <div className="bg-card backdrop-blur-sm p-4 rounded-lg border border-border">
             <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-accent border border-border flex items-center justify-center">💻</div>
-            <h3 className="font-bold text-lg mb-2 text-foreground">Desarrollo Full Stack</h3>
-            <p className="text-muted-foreground">Experiencia en React, Next.js, Python y Node.js</p>
+            <h3 className="font-bold text-lg mb-2 text-foreground">{t("about.feature.dev.title")}</h3>
+            <p className="text-muted-foreground">{t("about.feature.dev.desc")}</p>
           </div>
           <div className="bg-card backdrop-blur-sm p-4 rounded-lg border border-border">
             <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-accent border border-border flex items-center justify-center">🎨</div>
-            <h3 className="font-bold text-lg mb-2 text-foreground">Diseño UI/UX</h3>
-            <p className="text-muted-foreground">Interfaces intuitivas y experiencias de usuario</p>
+            <h3 className="font-bold text-lg mb-2 text-foreground">{t("about.feature.uiux.title")}</h3>
+            <p className="text-muted-foreground">{t("about.feature.uiux.desc")}</p>
           </div>
           <div className="bg-card backdrop-blur-sm p-4 rounded-lg border border-border">
             <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-accent border border-border flex items-center justify-center">✍️</div>
-            <h3 className="font-bold text-lg mb-2 text-foreground">Escritura</h3>
-            <p className="text-muted-foreground">Contenido técnico y narrativas creativas</p>
+            <h3 className="font-bold text-lg mb-2 text-foreground">{t("about.feature.write.title")}</h3>
+            <p className="text-muted-foreground">{t("about.feature.write.desc")}</p>
           </div>
           <div className="bg-card backdrop-blur-sm p-4 rounded-lg border border-border">
             <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-accent border border-border flex items-center justify-center">🎵</div>
-            <h3 className="font-bold text-lg mb-2 text-foreground">Música</h3>
-            <p className="text-muted-foreground">Expresión artística y formatos audiovisuales</p>
+            <h3 className="font-bold text-lg mb-2 text-foreground">{t("about.feature.music.title")}</h3>
+            <p className="text-muted-foreground">{t("about.feature.music.desc")}</p>
           </div>
           <div className="bg-card backdrop-blur-sm p-4 rounded-lg border border-border">
             <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-accent border border-border flex items-center justify-center">🎓</div>
-            <h3 className="font-bold text-lg mb-2 text-foreground">Docencia</h3>
-            <p className="text-muted-foreground">Prácticas pedagógicas y colaboración profesional</p>
+            <h3 className="font-bold text-lg mb-2 text-foreground">{t("about.feature.teacher.title")}</h3>
+            <p className="text-muted-foreground">{t("about.feature.teacher.desc")}</p>
           </div>
           <div className="bg-card backdrop-blur-sm p-4 rounded-lg border border-border">
             <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-accent border border-border flex items-center justify-center">🚀</div>
-            <h3 className="font-bold text-lg mb-2 text-foreground">Innovación</h3>
-            <p className="text-muted-foreground">Siempre buscando nuevas tecnologías y metodologías</p>
+            <h3 className="font-bold text-lg mb-2 text-foreground">{t("about.feature.innovation.title")}</h3>
+            <p className="text-muted-foreground">{t("about.feature.innovation.desc")}</p>
           </div>
         </div>
       </div>

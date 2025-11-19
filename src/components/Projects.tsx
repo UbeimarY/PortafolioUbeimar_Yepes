@@ -78,17 +78,10 @@ export default function Projects() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold">{t("projects.title")}</h2>
-          <p className="text-muted-foreground mt-2">
-            {lang === "es"
-              ? "Una selección de proyectos que demuestran mis habilidades técnicas y creatividad."
-              : "A selection of projects showcasing technical skills and creativity."}
-          </p>
+          <p className="text-muted-foreground mt-2">{t("projects.subtitle")}</p>
         </div>
 
-        {/* Proyectos Destacados: dos columnas, imagen superior y badge */}
-        <h3 className="text-lg font-semibold mb-4">
-          {lang === "es" ? "Proyectos Destacados" : "Featured Projects"}
-        </h3>
+        <h3 className="text-lg font-semibold mb-4">{t("projects.featured")}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {featured.map((p) => (
             <article key={p.title} className="bg-card backdrop-blur-sm rounded-2xl border border-border overflow-hidden">
@@ -135,10 +128,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Otros Proyectos: tarjetas compactas */}
-        <h3 className="text-lg font-semibold mb-4">
-          {lang === "es" ? "Otros Proyectos" : "Other Projects"}
-        </h3>
+        <h3 className="text-lg font-semibold mb-4">{t("projects.others")}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {others.map((p) => (
             <article key={p.title} className="bg-card backdrop-blur-sm rounded-2xl border border-border overflow-hidden">

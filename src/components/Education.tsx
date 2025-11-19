@@ -7,18 +7,18 @@ export default function Education() {
   const { t } = useLanguage();
   const education = [
     {
-      title: "Bachiller Académico",
-      org: "Colegio Nuestra Señora del Carmen (Carmelitas)",
-      place: "Pasto, Colombia",
-      period: "2019 - 2022",
-      highlights: ["Promedio académico: 4.9/5.0"],
+      title: t("education.item1.title"),
+      org: t("education.item1.org"),
+      place: t("education.item1.place"),
+      period: t("education.item1.period"),
+      highlights: [t("education.item1.hl1")],
     },
     {
-      title: "Certificación en Inglés C+",
-      org: "Cambridge",
-      place: "Pasto, Colombia",
-      period: "2019",
-      highlights: ["Nivel de Inglés C+", "Licencia de Docente para enseñar Inglés"],
+      title: t("education.item2.title"),
+      org: t("education.item2.org"),
+      place: t("education.item2.place"),
+      period: t("education.item2.period"),
+      highlights: [t("education.item2.hl1"), t("education.item2.hl2")],
     },
   ];
 
@@ -27,7 +27,7 @@ export default function Education() {
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold">{t("education.title")}</h2>
-          <p className="text-muted-foreground mt-2">Mi formación académica y certificaciones que respaldan mi experiencia profesional</p>
+          <p className="text-muted-foreground mt-2">{t("education.subtitle")}</p>
         </div>
 
         <div className="relative">
