@@ -15,7 +15,7 @@ export default function Projects() {
           ? "App full‑stack de entrenamiento cognitivo con juegos, usuarios y estadísticas. Frontend en Next.js + Tailwind; backend Spring Boot + MongoDB."
           : "Full‑stack cognitive training app with games, user management, and stats. Next.js + Tailwind frontend; Spring Boot + MongoDB backend.",
       tech: ["Next.js", "Tailwind", "Spring Boot", "MongoDB"],
-      image: "/globe.svg",
+      image: "/cognitive.jpeg",
       demoUrl: "https://github.com/UbeimarY/Patrones_Estructura_Proyecto_Final.git",
       repoUrl: "https://github.com/UbeimarY/Patrones_Estructura_Proyecto_Final.git",
       featured: true,
@@ -27,7 +27,7 @@ export default function Projects() {
           ? "Plataforma de tareas con gamificación: progreso, insignias y rachas. UI moderna y responsiva."
           : "Gamified task platform: progress tracking, badges, and streaks. Modern, responsive UI.",
       tech: ["Next.js", "TypeScript", "Tailwind"],
-      image: "/window.svg",
+      image: "/Smart.png",
       demoUrl: "https://proyecto-smart.vercel.app/",
       repoUrl: undefined,
       featured: true,
@@ -39,7 +39,7 @@ export default function Projects() {
           ? "Explorador con Leaflet y OpenStreetMap: zoom, capas y ubicación. Ideal para cartografía web."
           : "Explorer using Leaflet & OpenStreetMap: zoom, layers, and location.",
       tech: ["Leaflet", "OpenStreetMap"],
-      image: "/globe.svg",
+      image: "/Mapa.png",
       demoUrl: "https://maps-taller.vercel.app/",
       repoUrl: undefined,
       featured: false,
@@ -51,7 +51,7 @@ export default function Projects() {
           ? "Pantalla de preferencias con tema, idioma, color y accesibilidad."
           : "Preferences screen with theme, language, accent color and accessibility.",
       tech: ["Next.js", "Tailwind"],
-      image: "/next.svg",
+      image: "/interfaz.png",
       demoUrl: "https://form-detail-61h4.vercel.app/",
       repoUrl: undefined,
       featured: false,
