@@ -11,7 +11,7 @@ export default function Education() {
       org: "Colegio Nuestra Señora del Carmen (Carmelitas)",
       place: "Pasto, Colombia",
       period: "2019 - 2022",
-      highlights: ["Promedio académico: 4.0/5.0"],
+      highlights: ["Promedio académico: 4.9/5.0"],
     },
     {
       title: "Certificación en Inglés C+",

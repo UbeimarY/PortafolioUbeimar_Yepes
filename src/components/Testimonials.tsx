@@ -37,11 +37,11 @@ export default function Testimonials() {
     },
     {
       id: 4,
-      text: "La creatividad y el pensamiento innovador de Ubeimar han sido fundamentales para el éxito de nuestros proyectos. Su capacidad para encontrar soluciones elegantes a problemas complejos es realmente impresionante.",
-      author: "Laura Martínez",
-      role: "Diseñadora UX/UI",
-      institution: "Proyecto Colaborativo",
-      avatar: "/avatars/laura-martinez.jpeg"
+      text: "Colaborar con Ubeimar me ha demostrado el valor de alguien que no se detiene. Su constancia para aprender, refinar su trabajo y avanzar sin perder el enfoque lo vuelve admirable. Además de ser un amigo en el que se puede confiar, aporta claridad y disciplina en cada proyecto. Su manera de crecer y hacer que los demás crezcan con él marca la diferencia en cualquier equipo!",
+      author: "Samuel Bermejo",
+      role: "Fujitsu Technology Solutions S.A.",
+      institution: "Andalucia, España",
+      avatar: "/avatars/samuel-bermejo.jpeg"
     }
   ];
 
