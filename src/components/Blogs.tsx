@@ -31,8 +31,8 @@ export default function Blogs() {
       readTime: t("blogs.post3.readTime"),
       tags: [t("blogs.post3.tag1"), t("blogs.post3.tag2"), t("blogs.post3.tag3")],
       excerpt: t("blogs.post3.excerpt"),
-      image: "/window.svg",
-      url: "#",
+      image: "/blog3.png",
+      url: "https://medium.com/@ubeimarlyepes/microservicios-con-node-js-y-docker-una-arquitectura-escalable-para-el-mundo-moderno-1806a8c6cfa9",
     },
     {
       title: t("blogs.post4.title"),
