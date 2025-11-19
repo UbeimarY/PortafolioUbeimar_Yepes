@@ -13,8 +13,8 @@ export default function Blogs() {
       readTime: t("blogs.post1.readTime"),
       tags: [t("blogs.post1.tag1"), t("blogs.post1.tag2")],
       excerpt: t("blogs.post1.excerpt"),
-      image: "/next.svg",
-      url: "#",
+      image: "/react18.png",
+      url: "https://medium.com/@ubeimarlyepes/el-futuro-del-desarrollo-frontend-con-react-18-f3c508e8bec3",
     },
     {
       title: t("blogs.post2.title"),
