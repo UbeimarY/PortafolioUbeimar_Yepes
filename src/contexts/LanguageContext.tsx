@@ -44,15 +44,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     () => (key: string) => {
       const k = key.trim();
       const L = ((lang as string) || "es").toLowerCase() as Lang;
-      // Intento directo
       const direct = translations[k]?.[L];
       if (direct !== undefined) return direct;
-      // Tolerar mayúsculas/minúsculas en la clave
       const lowerKey = translations[k.toLowerCase()]?.[L];
       if (lowerKey !== undefined) return lowerKey;
-      // Fallback a español si existe
       const fallbackEs = translations[k]?.["es"] ?? translations[k.toLowerCase()]?.["es"];
-      return fallbackEs ?? k
+      return fallbackEs ?? k;
     },
     [lang]
   );
@@ -72,6 +69,7 @@ export function useLanguage() {
 
 // contexts/LanguageContext.tsx
 // Dentro del objeto translations, asegúrate de tener estas claves:
+// MOVER 'translations' ARRIBA: antes de usarlo en t()
 const translations: Translations = {
   "nav.home": { es: "Inicio", en: "Home" },
   "nav.blogs": { es: "Blogs", en: "Blogs" },
@@ -332,61 +330,17 @@ const translations: Translations = {
   "contact.submit": { es: "Enviar", en: "Send" },
   "contact.responseTime": { es: "Tiempo de respuesta: 24‑48 horas", en: "Response time: 24‑48 hours" },
 
-  // Footer — ÚNICA DEFINICIÓN SIN DUPLICADOS
+  // Footer (estas claves deben estar dentro del objeto, sin otra declaración aparte)
   "footer.quicklinks": { es: "Enlaces rápidos", en: "Quick Links" },
   "footer.services": { es: "Servicios", en: "Services" },
   "footer.privacy": { es: "Privacidad", en: "Privacy" },
   "footer.terms": { es: "Términos", en: "Terms" },
+  "footer.dedicated": { es: "Dedicado a mi Hermano", en: "Dedicated to my Brother" },
   "footer.inspired": { es: "Inspirado en Celi", en: "Inspired by Celi" },
+  "footer.downloadCV": { es: "Descargar CV", en: "Download CV" },
   "footer.bio": {
     es: "Desarrollador Full Stack & UI/UX Designer especializado en crear experiencias digitales excepcionales con tecnologías modernas.",
     en: "Full Stack Developer & UI/UX Designer specializing in creating exceptional digital experiences with modern technologies.",
   },
-  "footer.service.frontend": { es: "Desarrollo Frontend", en: "Frontend Development" },
-  "footer.service.backend": { es: "Desarrollo Backend", en: "Backend Development" },
-  "footer.service.uiux": { es: "Diseño UI/UX", en: "UI/UX Design" },
-  "footer.service.consulting": { es: "Consultoría Técnica", en: "Technical Consulting" },
-  "footer.service.translation": { es: "Traducción Técnica", en: "Technical Translation" },
-
-  // Añadidos: Artecoser, Mecánico y Docente (dentro de translations)
-  "experience.items.4.role": { es: "Multiusos", en: "Multi-skilled" },
-  "experience.items.4.company": { es: "Artecoser", en: "Artecoser" },
-  "experience.items.4.place": { es: "Presencial", en: "On-site" },
-  "experience.items.4.period": { es: "2025 - Presente", en: "2025 - Present" },
-  "experience.items.4.badge": { es: "Tiempo Completo", en: "Full Time" },
-  "experience.items.4.summary": {
-    es: "Trabajo en Multifunciones, Programador de Bordadoras y Tecnologías MicroChip.",
-    en: "Multifunctional work, Embroidery programmer and MicroChip technologies."
-  },
-
-  "experience.items.5.role": { es: "Mecánico", en: "Mechanic" },
-  "experience.items.5.company": { es: "Independiente", en: "Freelance" },
-  "experience.items.5.place": { es: "Presencial", en: "On-site" },
-  "experience.items.5.period": { es: "2022 - Presente", en: "2022 - Present" },
-  "experience.items.5.badge": { es: "", en: "" },
-  "experience.items.5.summary": {
-    es: "Mantenimiento a vehículos tipo carro.",
-    en: "Maintenance of car-type vehicles."
-  },
-
-  "experience.items.6.role": { es: "Docente", en: "Teacher" },
-  "experience.items.6.company": { es: "Independiente", en: "Freelance" },
-  "experience.items.6.place": { es: "Presencial", en: "On-site" },
-  "experience.items.6.period": { es: "2022 - Presente", en: "2022 - Present" },
-  "experience.items.6.badge": { es: "", en: "" },
-  "experience.items.6.summary": {
-    es: "Docente en diferentes áreas del saber para estudiantes de 9 a 11.",
-    en: "Teacher in various knowledge areas for students from 9th to 11th grade."
-  },
-
-  // Nuevo: Programación de Servidores (SurviDeath)
-  "experience.items.7.role": { es: "Programación de Servidores", en: "Server Programming" },
-  "experience.items.7.company": { es: "Proyecto Independiente", en: "Independent Project" },
-  "experience.items.7.place": { es: "Remoto", en: "Remote" },
-  "experience.items.7.period": { es: "2024", en: "2024" },
-  "experience.items.7.badge": { es: "", en: "" },
-  "experience.items.7.summary": {
-    es: "Proyecto denominado SurviDeath, creado un servidor con plugins para el juego Minecraft.",
-    en: "Project called SurviDeath, created a server with plugins for the Minecraft game."
-  },
-}
+    // ... existing code ...
+};
