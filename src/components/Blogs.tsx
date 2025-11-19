@@ -40,8 +40,8 @@ export default function Blogs() {
       readTime: t("blogs.post4.readTime"),
       tags: [t("blogs.post4.tag1"), t("blogs.post4.tag2")],
       excerpt: t("blogs.post4.excerpt"),
-      image: "/file.svg",
-      url: "#",
+      image: "/blog4.png",
+      url: "https://design-systems.hashnode.dev/design-systems-de-la-teoria-a-la-practica",
     },
   ];
 
