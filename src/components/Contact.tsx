@@ -110,7 +110,13 @@ export default function Contact() {
                 >
                   <FaGithub />
                 </a>
-                <a className="hover:text-blue-500" href="#" aria-label="Abrir LinkedIn">
+                <a
+                  className="hover:text-blue-500"
+                  href="https://www.linkedin.com/in/ubeimar-lizardo-yepes-portilla-211318368/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir LinkedIn"
+                >
                   <FaLinkedin />
                 </a>
                 <a

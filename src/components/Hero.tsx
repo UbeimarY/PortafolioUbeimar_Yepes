@@ -25,6 +25,14 @@ export default function Hero() {
         <a href="#contact" className="bg-primary px-6 py-2 rounded-lg font-medium text-primary-foreground hover:bg-accent transition" aria-label={t("cta.contact")}>
           {t("cta.contact")}
         </a>
+        <a
+          href="/UbeimarLizardo_YepesPortilla_CV.pdf"
+          download
+          className="bg-accent px-6 py-2 rounded-lg font-medium text-accent-foreground hover:bg-primary transition"
+          aria-label={t("footer.downloadCV")}
+        >
+          {t("footer.downloadCV")}
+        </a>
       </div>
 
       {/* Socials sin cambios funcionales */}
@@ -40,7 +48,7 @@ export default function Hero() {
         </a>
         <a
           className="hover:text-blue-500"
-          href="#"
+          href="https://www.linkedin.com/in/ubeimar-lizardo-yepes-portilla-211318368/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Abrir LinkedIn"

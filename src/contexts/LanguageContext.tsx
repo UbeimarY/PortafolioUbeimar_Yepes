@@ -5,6 +5,7 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from "
 type Lang = "es" | "en";
 type Translations = Record<string, Record<Lang, string>>;
 
+// Resto del archivo: Contexto y Provider usando 'translations' ya declarado arriba
 const LanguageContext = createContext<{
   lang: Lang;
   toggleLang: () => void;
@@ -70,6 +71,7 @@ export function useLanguage() {
 // contexts/LanguageContext.tsx
 // Dentro del objeto translations, asegúrate de tener estas claves:
 // MOVER 'translations' ARRIBA: antes de usarlo en t()
+// ÚNICA definición al inicio del archivo
 const translations: Translations = {
   "nav.home": { es: "Inicio", en: "Home" },
   "nav.blogs": { es: "Blogs", en: "Blogs" },
@@ -266,7 +268,6 @@ const translations: Translations = {
   "testimonials.ctaContact": { es: "Contáctame", en: "Contact Me" },
   "testimonials.ctaLeave": { es: "Dejar Testimonio", en: "Leave Testimonial" },
 
-  // Testimonials items
   "testimonials.items.1.text": {
     es: "Trabajar con Ubeimar en proyectos académicos ha sido una experiencia enriquecedora...",
     en: "Working with Ubeimar on academic projects has been enriching...",
@@ -330,7 +331,6 @@ const translations: Translations = {
   "contact.submit": { es: "Enviar", en: "Send" },
   "contact.responseTime": { es: "Tiempo de respuesta: 24‑48 horas", en: "Response time: 24‑48 hours" },
 
-  // Footer (estas claves deben estar dentro del objeto, sin otra declaración aparte)
   "footer.quicklinks": { es: "Enlaces rápidos", en: "Quick Links" },
   "footer.services": { es: "Servicios", en: "Services" },
   "footer.privacy": { es: "Privacidad", en: "Privacy" },
@@ -343,10 +343,50 @@ const translations: Translations = {
     en: "Full Stack Developer & UI/UX Designer specializing in creating exceptional digital experiences with modern technologies.",
   },
 
-  // Ítems del listado de servicios (faltaban estas claves)
   "footer.service.frontend": { es: "Desarrollo Frontend", en: "Frontend Development" },
   "footer.service.backend": { es: "Desarrollo Backend", en: "Backend Development" },
   "footer.service.uiux": { es: "Diseño UI/UX", en: "UI/UX Design" },
   "footer.service.consulting": { es: "Consultoría Técnica", en: "Technical Consulting" },
   "footer.service.translation": { es: "Traducción Técnica", en: "Technical Translation" },
+
+  // Experience — items 4, 5, 6, 7
+  "experience.items.4.role": { es: "Multiusos", en: "Multi-skilled" },
+  "experience.items.4.company": { es: "Artecoser", en: "Artecoser" },
+  "experience.items.4.place": { es: "Presencial", en: "On-site" },
+  "experience.items.4.period": { es: "2025 - Presente", en: "2025 - Present" },
+  "experience.items.4.badge": { es: "Tiempo Completo", en: "Full Time" },
+  "experience.items.4.summary": {
+    es: "Trabajo en Multifunciones, Programador de Bordadoras y Tecnologías MicroChip.",
+    en: "Multifunctional work, Embroidery programmer and MicroChip technologies.",
+  },
+
+  "experience.items.5.role": { es: "Mecánico", en: "Mechanic" },
+  "experience.items.5.company": { es: "Independiente", en: "Freelance" },
+  "experience.items.5.place": { es: "Presencial", en: "On-site" },
+  "experience.items.5.period": { es: "2022 - Presente", en: "2022 - Present" },
+  "experience.items.5.badge": { es: "", en: "" },
+  "experience.items.5.summary": {
+    es: "Mantenimiento a vehículos tipo carro.",
+    en: "Maintenance of car-type vehicles.",
+  },
+
+  "experience.items.6.role": { es: "Docente", en: "Teacher" },
+  "experience.items.6.company": { es: "Independiente", en: "Freelance" },
+  "experience.items.6.place": { es: "Presencial", en: "On-site" },
+  "experience.items.6.period": { es: "2022 - Presente", en: "2022 - Present" },
+  "experience.items.6.badge": { es: "", en: "" },
+  "experience.items.6.summary": {
+    es: "Docente en diferentes áreas del saber para estudiantes de 9 a 11.",
+    en: "Teacher in various knowledge areas for students from 9th to 11th grade.",
+  },
+
+  "experience.items.7.role": { es: "Programación de Servidores", en: "Server Programming" },
+  "experience.items.7.company": { es: "Proyecto Independiente", en: "Independent Project" },
+  "experience.items.7.place": { es: "Remoto", en: "Remote" },
+  "experience.items.7.period": { es: "2024", en: "2024" },
+  "experience.items.7.badge": { es: "", en: "" },
+  "experience.items.7.summary": {
+    es: "Proyecto denominado SurviDeath, creado un servidor con plugins para el juego Minecraft.",
+    en: "Project called SurviDeath, created a server with plugins for the Minecraft game.",
+  },
 };

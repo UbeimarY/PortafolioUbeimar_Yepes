@@ -57,7 +57,13 @@ export default function Footer() {
               >
                 <FaGithub />
               </a>
-              <a className="hover:text-blue-500" href="#" aria-label="Abrir LinkedIn">
+              <a
+                className="hover:text-blue-500"
+                href="https://www.linkedin.com/in/ubeimar-lizardo-yepes-portilla-211318368/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir LinkedIn"
+              >
                 <FaLinkedin />
               </a>
               <a
@@ -90,17 +96,6 @@ export default function Footer() {
               <li><a href="#contact" className="hover:text-foreground">{t("nav.contact")}</a></li>
               <li><a href="#testimonials" className="hover:text-foreground">{t("nav.testimonials")}</a></li>
               <li><a href="#blog" className="hover:text-foreground">{t("nav.blogs")}</a></li>
-              {/* Descargar CV */}
-              <li>
-                <a
-                  href="/UbeimarLizardo_YepesPortilla_CV.pdf"
-                  download
-                  className="hover:text-foreground"
-                  aria-label={t("footer.downloadCV")}
-                >
-                  {t("footer.downloadCV")}
-                </a>
-              </li>
             </ul>
           </div>
 
