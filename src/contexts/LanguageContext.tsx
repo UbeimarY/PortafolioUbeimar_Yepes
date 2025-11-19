@@ -342,5 +342,11 @@ const translations: Translations = {
     es: "Desarrollador Full Stack & UI/UX Designer especializado en crear experiencias digitales excepcionales con tecnologías modernas.",
     en: "Full Stack Developer & UI/UX Designer specializing in creating exceptional digital experiences with modern technologies.",
   },
-    // ... existing code ...
+
+  // Ítems del listado de servicios (faltaban estas claves)
+  "footer.service.frontend": { es: "Desarrollo Frontend", en: "Frontend Development" },
+  "footer.service.backend": { es: "Desarrollo Backend", en: "Backend Development" },
+  "footer.service.uiux": { es: "Diseño UI/UX", en: "UI/UX Design" },
+  "footer.service.consulting": { es: "Consultoría Técnica", en: "Technical Consulting" },
+  "footer.service.translation": { es: "Traducción Técnica", en: "Technical Translation" },
 };
